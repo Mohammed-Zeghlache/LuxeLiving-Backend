@@ -8,47 +8,6 @@ const app = express();
 app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 
-// app.post('/client', async (req, res) => {
-//   try {
-//     const {
-//       name,
-//       phone,
-//       email,
-//       address,
-//       numberofProducts,
-//       productCode,
-//       quantity,
-//       TotalPrice
-//     } = req.body;
-
-//     if (!name || !phone || !email || !address || !productCode || !quantity || !TotalPrice || !numberofProducts) {
-//       return res.status(400).json({ error: 'Missing required fields' });
-//     }
-
-//     const newOrder = new Client({
-//       name,
-//       phone,
-//       email,
-//       address,
-//       numberofProducts,
-//       products: [
-//         {
-//           productCode,
-//           quantity
-//         }
-//       ],
-//       TotalPrice
-//     });
-
-//     await newOrder.save();
-//     res.status(201).json({ message: 'Order created successfully', order: newOrder });
-//   } catch (error) {
-//     console.error('Error creating order:', error);
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// });
-
-
 app.post('/client', async (req, res) => {
   try {
     const { name, phone, email, address, products, TotalPrice } = req.body;
